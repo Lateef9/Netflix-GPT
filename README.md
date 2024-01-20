@@ -10,4 +10,4 @@ Browse (after authentication)
     - MovieLists * N
 NetflixGPT
     - Search Bar
-    - Movie Suggestions
+    - Movie Suggestions"# Netflix-GPT" 
