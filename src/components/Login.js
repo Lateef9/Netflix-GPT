@@ -7,13 +7,19 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utills/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utills/userSlice";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, seterrorMessage] = useState(null);
+  const dispatch = useDispatch();
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+  const navigate = useNavigate();
+
 
   const handleSignButton = () => {
     const message = checkValidData(email.current.value, password.current.value);
@@ -28,6 +34,25 @@ const Login = () => {
     createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
       .then((userCredential) => {
         const user = userCredential.user;
+        updateProfile(user, {
+          displayName: name.current.value ,
+          photoURL: "https://avatars.githubusercontent.com/u/104296222?v=4"
+        }).then(() => {
+          // Profile updated!
+          const {uid, email, displayName, photoURL } = auth.currentUser;
+          dispatch(addUser({
+            uid : uid,
+            email: email,
+            displayName : displayName,
+            photoURL : photoURL
+           }));
+          navigate("/browse")
+          
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
+        navigate("/browse")
         // console.log(user);
       })
       .catch((error) => {
@@ -42,6 +67,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email.current.value, password.current.value)
       .then((userCredential) => {
         const user = userCredential.user;
+        navigate("/browse")
         console.log(user)
       })
       .catch((error) => {
