@@ -34,8 +34,9 @@ const Login = () => {
     createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
       .then((userCredential) => {
         const user = userCredential.user;
+        
         updateProfile(user, {
-          displayName: name.current.value ,
+          displayName: name?.current?.value ,
           photoURL: "https://avatars.githubusercontent.com/u/104296222?v=4"
         }).then(() => {
           // Profile updated!
@@ -44,16 +45,15 @@ const Login = () => {
             uid : uid,
             email: email,
             displayName : displayName,
-            photoURL : photoURL
+            photoURL : photoURL,
            }));
+
           navigate("/browse")
           
         }).catch((error) => {
           // An error occurred
-          // ...
+        
         });
-        navigate("/browse")
-        // console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -68,7 +68,6 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         navigate("/browse")
-        console.log(user)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -103,6 +102,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Enter Full Name"
             className="p-3 my-4 w-full bg-gray-700 "
