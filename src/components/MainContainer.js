@@ -10,7 +10,6 @@ const MainContainer = () => {
     if(movies === null) return;
 
     const mainmovie = movies[0];
-    console.log(mainmovie);
 
     const {original_title,overview,id} = mainmovie;
 
