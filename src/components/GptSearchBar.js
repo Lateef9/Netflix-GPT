@@ -11,14 +11,14 @@ const GptSearchBar = () => {
   //for each movie i call tmdb searach movie API
 
   const searchMovieTMDB = async (movie) => {
-    const data = fetch(
+    const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
         movie +
         "&include_adult=false&language=en-US&page=1",
       API_OPTIONS
     );
+    const json = await data.json();
 
-    const json = data.json();
     return json.results;
   };
 
@@ -35,8 +35,10 @@ const GptSearchBar = () => {
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });
+    
 
     const gptMovies = gptResults.choices[0]?.message?.content.split(",");
+    console.log(gptMovies)
 
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
     // [Promise, Promise, Promise, Promise, Promise]

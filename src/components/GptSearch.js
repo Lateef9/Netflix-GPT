@@ -1,12 +1,12 @@
 import React from 'react'
 import GptSearchBar from './GptSearchBar'
-// import GptSuggestMovies from './GptSuggestMovies'
+import GptSuggestMovies from './GptSuggestMovies'
 
 const GptSearch = () => {
   return (
-    <div className=''>
+    <div className='bg-gray-800 '>
       <GptSearchBar  />
-
+      <GptSuggestMovies />
     </div>
   )
 }
