@@ -5,10 +5,8 @@ export const API_OPTIONS ={
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYzQ2ZDlhMGViNGYwNTJiZDMzOTIwM2I3YjU5OGU4NSIsInN1YiI6IjY1Yjg5NDMxMzBmNzljMDE2MmE5MGU3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tq2IRzwCsSrezfiEIEGFP3Q5Sv1Pkb7j-77U0yZsueI'
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NjM2ZjhmZmNkM2QxMTgzZDdkYTEwYzFiZjVjYWFmYSIsInN1YiI6IjY1Yjg5NDMxMzBmNzljMDE2MmE5MGU3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AOc-XdblssMdaQDMNjxUnYxGQVipTtx7RHtatbMFSmE'
     }
   };
 
   export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w400"
-
-  export const OPENAI_KEY = ""

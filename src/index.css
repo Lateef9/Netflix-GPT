@@ -12,4 +12,7 @@
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
   }
+  .text-shadow {
+    text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5);
+  }
 }
